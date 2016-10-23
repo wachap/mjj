@@ -33,6 +33,11 @@ export default {
         include: projectRootPath,
         exclude: /node_modules/
       }, {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+        include: projectRootPath,
+        exclude: /node_modules/
+      }, {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         query: {
