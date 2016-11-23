@@ -1,4 +1,4 @@
-// express server with webpack middlewares
+// run express server with webpack middlewares and development config
 
 process.env.NODE_ENV = 'development'
 
@@ -9,20 +9,22 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 import history from 'connect-history-api-fallback'
 import express from 'express'
 
-import webpackConfigDev from './webpack/config.dev.babel'
-import {CURRENT_IP, WEBPACK_SERVER_PORT, projectRootPath} from './config'
+import webpackConfigDev from '../webpack/config.dev.babel'
+import {CURRENT_IP, WEBPACK_SERVER_PORT} from '../config'
 
 const app = express()
 
 const compiler = webpack(webpackConfigDev)
-const hotMiddleware = webpackHotMiddleware(compiler)
 const webpackMiddleware = webpackDevMiddleware(compiler, {
   publicPath: webpackConfigDev.output.publicPath,
+  // webpack build logs config
   stats: {
     colors: true,
     chunks: false
   }
 })
+const hotMiddleware = webpackHotMiddleware(compiler)
+
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
@@ -33,8 +35,8 @@ compiler.plugin('compilation', function (compilation) {
 
 // handle fallback for HTML5 history API
 app.use(history())
+
 app.use(webpackMiddleware)
-// disply errors on browser
 app.use(hotMiddleware)
 
 app.listen(WEBPACK_SERVER_PORT, '0.0.0.0', function () {

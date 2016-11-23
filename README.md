@@ -17,3 +17,5 @@ $ npm run build
 # move dist folder to gh-pages branch and push it
 $ npm run deploy
 ```
+
+This project is powered by [webpack-basic-boilerplate](https://github.com/wochap/webpack-basic-boilerplate)

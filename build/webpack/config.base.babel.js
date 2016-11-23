@@ -1,6 +1,6 @@
 import path from 'path'
 
-import {projectRootPath} from '../config'
+import {projectRootPath, projectSourcePath} from '../config'
 
 export default {
   debug: true,
@@ -11,9 +11,9 @@ export default {
   resolve: {
     extensions: ['', '.js'],
     alias: {
-      'src': path.join(projectRootPath, 'src'),
-      'app': path.join(projectRootPath, 'src/app'),
-      'styles': path.join(projectRootPath, 'src/styles')
+      'src': projectSourcePath,
+      'app': path.join(projectSourcePath, 'app'),
+      'styles': path.join(projectSourcePath, 'styles')
     },
     modulesDirectories: ['node_modules', 'shared']
   },
@@ -22,7 +22,7 @@ export default {
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        include: projectRootPath,
+        include: projectSourcePath,
         exclude: /node_modules/
       }
     ],
@@ -30,30 +30,78 @@ export default {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: projectRootPath,
+        include: projectSourcePath,
         exclude: /node_modules/
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader'
       }, {
         test: /\.pug$/,
         loader: 'pug-loader',
-        include: projectRootPath,
-        exclude: /node_modules/
+        include: projectSourcePath
       }, {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
+        loader: 'file-loader',
+        include: projectSourcePath,
         query: {
-          limit: 10000,
           name: 'static/img/[name].[ext]'
         }
       }, {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.svg(\?v=\d+.\d+.\d+)?$/,
         loader: 'url-loader',
+        include: projectSourcePath,
         query: {
           limit: 10000,
+          mimetype: 'image/svg+xml',
+          name: 'static/img/[name].[ext]'
+        }
+      }, {
+        test: /\.eot(\?.*)?$/,
+        loader: 'file-loader',
+        include: projectSourcePath,
+        query: {
+          name: 'static/fonts/[name].[ext]'
+        }
+      }, {
+        test: /\.otf(\?.*)?$/,
+        loader: 'url-loader',
+        include: projectSourcePath,
+        query: {
+          limit: 10000,
+          mimetype: 'font/opentype',
+          name: 'static/fonts/[name].[ext]'
+        }
+      }, {
+        test: /\.ttf(\?v=\d+.\d+.\d+)?$/,
+        loader: 'url-loader',
+        include: projectSourcePath,
+        query: {
+          limit: 10000,
+          mimetype: 'application/octet-stream',
+          name: 'static/fonts/[name].[ext]'
+        }
+      }, {
+        test: /\.woff(\?.*)?$/,
+        loader: 'url-loader',
+        include: projectSourcePath,
+        query: {
+          limit: 10000,
+          mimetype: 'application/font-woff',
+          name: 'static/fonts/[name].[ext]'
+        }
+      }, {
+        test: /\.woff2(\?.*)?$/,
+        loader: 'url-loader',
+        include: projectSourcePath,
+        query: {
+          limit: 10000,
+          mimetype: 'application/font-woff2',
           name: 'static/fonts/[name].[ext]'
         }
       }, {
         test: /\.ico$/,
         loader: 'file-loader',
+        include: projectSourcePath,
         query: {
           name: '[name].ico'
         }
@@ -64,6 +112,13 @@ export default {
     configFile: path.join(projectRootPath, '.eslintrc.js')
   },
   postcss: [
-    require('autoprefixer')({browsers: ['last 2 versions']})
+    require('autoprefixer')({
+      browsers: [
+        '>1%',
+        'last 4 versions',
+        'Firefox ESR',
+        'not ie < 9'
+      ]
+    })
   ]
 }
