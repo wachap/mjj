@@ -20,6 +20,8 @@ export default webpackMerge(webpackConfigBase, {
       // force page reload when html-webpack-plugin template changes
       path.resolve(__dirname, './client.js'),
 
+      // favicon to keep your browser from throwing a 404 during dev
+      path.join(projectSourcePath, 'favicon.ico'),
       path.join(projectSourcePath, 'app/main.js')
     ]
   },
