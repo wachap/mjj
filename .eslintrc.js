@@ -17,5 +17,8 @@ module.exports = {
   rules: {
     'no-console': DEBUG ? 0 : 2,
     'no-debugger': DEBUG ? 0 : 2
+  },
+  'globals': {
+    '$': true,
   }
 }
