@@ -4,7 +4,8 @@
     "start": "http-server dist",
     "dev": "babel-node build/tasks/dev.js",
     "build": "run-s build-start start",
-    "build-start": "babel-node build/tasks/build.js"
+    "build-start": "babel-node build/tasks/build.js",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "express": "^4.14.0",
@@ -54,6 +55,7 @@
     "eventsource-polyfill": "^0.9.6",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.22.0",
     "inline-manifest-webpack-plugin": "^3.0.1",
     "json-loader": "^0.5.4",
