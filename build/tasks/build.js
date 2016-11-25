@@ -8,13 +8,11 @@ import path from 'path'
 import shelljs from 'shelljs'
 
 import webpackConfigProd from '../webpack/config.prod.babel'
-import {projectRootPath, projectPublicPath} from '../config'
+import {projectRootPath, projectPublicPath, projectDistPath} from '../config'
 
 let spinner = ora('Building for production...')
 
 spinner.start()
-
-const projectDistPath = path.join(projectRootPath, 'dist')
 
 // delete dist folder
 shelljs.rm('-rf', projectDistPath)

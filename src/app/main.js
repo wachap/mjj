@@ -1,14 +1,4 @@
-import 'src/styles/main.scss'
-
-// jquery plugins
-window.jQuery = window.$ = require('jquery')
-// require('velocity-animate')
-require('materialize-css/js/jquery.easing.1.3')
-require('materialize-css/js/animation')
-require('materialize-css/js/velocity.min')
-require('materialize-css/js/global')
-require('materialize-css/js/scrollspy')
-
+import './bootstrap'
 import debounce from 'lodash.debounce'
 import ScrollReveal from 'scrollreveal'
 import toggleHamburger, {$lis, $hamburger} from './modules/nav'

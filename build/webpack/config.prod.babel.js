@@ -5,9 +5,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
 import AssetsPlugin from 'assets-webpack-plugin'
+import SWPrecacheWebpackPlugin from 'sw-precache-webpack-plugin'
 
 import webpackConfigBase from './config.base.babel'
-import {projectRootPath, projectSourcePath, templatePath} from '../config'
+import {projectRootPath, projectSourcePath, projectDistPath, templatePath} from '../config'
 
 export default webpackMerge(webpackConfigBase, {
   devtool: 'source-map',
@@ -90,6 +91,25 @@ export default webpackMerge(webpackConfigBase, {
     // https://github.com/kossnocorp/assets-webpack-plugin
     new AssetsPlugin({
       path: path.join(projectRootPath, 'dist')
+    }),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'm&j',
+      filepath: `${projectDistPath}/service-worker.js`,
+
+      // ensure all our static, local assets will be cached in background
+      staticFileGlobs: [
+        `${projectDistPath}/**/!(*map*)`,
+      ],
+      // stripPrefix: projectDistPath,
+
+      runtimeCaching: [
+        {
+          handler: 'networkFirst',
+          urlPattern: /\.(svg, eot, ttf, woff, woff2, jpg, webp)$/
+        }
+      ],
+
+      verbose: true
     })
   ]
 })
