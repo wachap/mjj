@@ -119,6 +119,9 @@ export default {
         'Firefox ESR',
         'not ie < 9'
       ]
+    }),
+    require('postcss-resemble-image').default({
+      selectors: ['header']
     })
   ]
 }
