@@ -1,0 +1,65 @@
+.c-site-nav {
+  a {
+    text-transform: uppercase;
+
+    &.active,
+    &:hover {
+      color: $global-color-secondary;
+    }
+  }
+
+  ul {
+    @include reset-list;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  @include mq($until: 'laptop') {
+    transition: opacity 0.3s linear, visibility 0s linear 0.3s;
+    will-change: opacity;
+
+    align-items: center;
+    background-color: $global-color-primary;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+
+    &::after,
+    &::before {
+      content: '';
+      flex: 1 1 0;
+      width: 0;
+    }
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s linear;
+    }
+
+    ul {
+      flex: none;
+      width: 100%;
+    }
+
+    li {
+      display: block;
+      opacity: 0;
+    }
+
+    a {
+      font-size: 1.5em;
+      display: block;
+      width: 100%;
+    }
+  };
+}

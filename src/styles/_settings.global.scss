@@ -1,0 +1,50 @@
+/*------------------------------------*\
+  #COLORS
+\*------------------------------------*/
+
+// brand colors
+
+$global-color-primary: #FFDE11;
+$global-color-secondary: #2B6CA3;
+$global-color-tertiary: #5AB7E8;
+
+
+
+
+
+/*------------------------------------*\
+  #BORDER
+\*------------------------------------*/
+
+$global-border-radius: 3px;
+$global-border-width: 1px;
+$global-border-color: $global-color-primary;
+
+
+
+
+
+/*------------------------------------*\
+  #OTHERS
+\*------------------------------------*/
+
+$global-spacing-unit: 1.5rem;
+$global-max-width: 75rem; // 1200px
+
+$ms-base: 1em;
+$ms-ratio: 1.5;
+
+
+
+
+
+/*------------------------------------*\
+  #TYPOGRAPHY
+\*------------------------------------*/
+
+$global-fz-h00: 3rem;
+$global-fz-h0 : 2.6rem;
+$global-fz-h1 : 2rem;
+$global-fz-h2 : 1.5rem;
+$global-fz-h3 : 1.25rem;
+$global-fz-h4 : 1rem;

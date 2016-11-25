@@ -1,4 +1,11 @@
 extends partials/layout.pug
 
 block content
-  <h1>YEAHH21312sdsdsASD</h1>
+  include partials/header.pug
+  <main>
+    include sections/hero.pug
+    include sections/services.pug
+    include sections/about.pug
+    include sections/contact.pug
+  </main>
+  include partials/footer.pug

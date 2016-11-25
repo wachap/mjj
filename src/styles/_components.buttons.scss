@@ -1,0 +1,51 @@
+// check dependencies
+
+$wocss-settings-global: false !default;
+
+
+@if ($wocss-settings-global == false) {
+  @error "[components-buttons] Have you included the wocss-settings-global module?"
+};
+
+
+
+
+
+/*------------------------------------*\
+  #BUTTONS
+\*------------------------------------*/
+
+.c-btn {
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+
+.c-btn--primary {
+  background-color: $global-color-primary;
+  color: #ffffff;
+
+  &:hover {
+    background-color: scale-color($global-color-primary, $lightness: -10%);
+  }
+}
+
+.c-btn--secondary {
+  background-color: $global-color-secondary;
+  color: #ffffff;
+
+  &:hover {
+    background-color: scale-color($global-color-secondary, $lightness: -10%);
+  }
+}
+
+.c-btn--outline {
+  background-color: transparent;
+  border: $global-border-width solid currentColor;
+}
+
+.c-btn--rounded {
+  border-radius: 15em;
+}

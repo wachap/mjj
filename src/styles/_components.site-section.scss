@@ -1,0 +1,32 @@
+.c-site-section {
+  padding: 3rem 0;
+
+  @include mq($from: 'tablet') {
+    padding: 5rem 0;
+  };
+}
+
+
+.c-site-section--about {
+  background-image: url('https://static.wixstatic.com/media/a38016_006ea8c45821441db6f0bb261178cc6f.jpg/v1/fill/w_1352,h_418,al_c,q_85,usm_0.66_1.00_0.01/a38016_006ea8c45821441db6f0bb261178cc6f.webp'),
+    linear-gradient(to right, #575248 0%, #a77b5f 50%, #ae7e64 75%, #695a4b 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mq($until: 'tablet') {
+    background-image: url('https://static.wixstatic.com/media/a38016_006ea8c45821441db6f0bb261178cc6f.jpg/v1/fill/w_640,h_658,al_c,q_85,usm_0.66_1.00_0.01/a38016_006ea8c45821441db6f0bb261178cc6f.jpg'),
+      linear-gradient(to right, #7f6750 0%, #a3795c 50%, #aa7d61 75%, #906e54 100%);
+  };
+
+  p {
+    text-shadow: 0 0 1em rgba($black, .5);
+  }
+}
+
+  .c-site-section__title {
+    margin: 0 0 1em;
+    font-size: $global-fz-h0;
+    font-weight: $global-fw-regular;
+    text-transform: uppercase;
+  }

@@ -1,0 +1,52 @@
+.c-hero {
+  // background: resemble-image(url('https://static.wixstatic.com/media/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg/v1/fill/w_1352,h_540,al_c,q_85,usm_0.66_1.00_0.01/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg'));
+  background-image: url('https://static.wixstatic.com/media/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg/v1/fill/w_1352,h_540,al_c,q_85,usm_0.66_1.00_0.01/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg'),
+    linear-gradient(to right, #413f3f 0%, #605957 50%, #524b42 75%, #8a8885 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: table;
+  height: calc(100vh - #{$site-header-height});
+  min-height: 360px;
+  padding: $global-spacing-unit 0;
+  width: 100%;
+
+  @include mq($until: 'tablet') {
+    background-image: url('https://static.wixstatic.com/media/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg/v1/fill/w_640,h_704,al_c,q_85,usm_0.66_1.00_0.01/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg'),
+      linear-gradient(to right, #5f5b58 0%, #58504d 50%, #564f49 75%, #58534b 100%);
+  };
+}
+
+  .c-hero__content-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+    .c-hero__content {
+      @include layout-center(43.750rem); // 700px
+
+      h2 {
+        color: $white;
+        font-size: $global-fz-h0;
+        font-weight: $global-fw-regular;
+        line-height: 1;
+        margin: 0 0 0.25em;
+        text-transform: uppercase;
+
+        span {
+          display: block;
+          font-size: .75em;
+          font-weight: $global-fw-light;
+        }
+      }
+
+      p {
+        color: $global-color-primary;
+        font-size: $global-fz-h0;
+        margin: 0 0 1em;
+      }
+
+      @include mq($until: 'laptop') {
+        text-align: center;
+      };
+    }

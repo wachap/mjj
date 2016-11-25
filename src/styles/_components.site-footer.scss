@@ -1,0 +1,11 @@
+.c-site-footer {
+  background-color: $black;
+  color: $white;
+  font-size: $global-fz-sm;
+  padding: 1rem $global-spacing-unit;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
