@@ -14,6 +14,9 @@
   @include mq($until: 'tablet') {
     background-image: url('https://static.wixstatic.com/media/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg/v1/fill/w_640,h_704,al_c,q_85,usm_0.66_1.00_0.01/a38016_925a0d8e71a44716a65d95ec04e80fe6.jpg'),
       linear-gradient(to right, #5f5b58 0%, #58504d 50%, #564f49 75%, #58534b 100%);
+    height: auto;
+    padding-bottom: $global-spacing-unit * 2;
+    padding-top: $global-spacing-unit * 2;
   };
 }
 
