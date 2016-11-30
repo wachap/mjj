@@ -4,12 +4,12 @@
     <ul class="o-grid o-grid--gutter-5 u-list-reset u-white u-fw-light">
       <li class="o-grid__item u-12/12 u-4/12@tablet js-sr-contact">
         <h3 class="u-mt0 u-uppercase">Telefono</h3>
-        <p class="u-fz-sm">1-800-800-000</p>
+        <p class="u-fz-sm">#{htmlWebpackPlugin.options.data.phoneNumber}</p>
       </li>
       <li class="o-grid__item u-12/12 u-4/12@tablet js-sr-contact">
         <h3 class="u-mt0 u-uppercase">Correo electronico</h3>
         <p class="u-fz-sm">
-          <a href="mailto:contacto@mjj.com">contacto@mjj.com</a>
+          <a href="mailto:#{htmlWebpackPlugin.options.data.email}">#{htmlWebpackPlugin.options.data.email}</a>
         </p>
       </li>
       <li class="o-grid__item u-12/12 u-4/12@tablet js-sr-contact">
