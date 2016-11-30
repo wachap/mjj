@@ -100,7 +100,7 @@ export default webpackMerge(webpackConfigBase, {
 
       // ensure all our static, local assets will be cached in background
       staticFileGlobs: [
-        `${projectDistPath}/**/!(*map*)`,
+        `${projectDistPath}/**/!(*map*|*yml*)`,
       ],
       // stripPrefix: projectDistPath,
 
