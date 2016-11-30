@@ -9,6 +9,7 @@ import SWPrecacheWebpackPlugin from 'sw-precache-webpack-plugin'
 
 import webpackConfigBase from './config.base.babel'
 import {projectRootPath, projectSourcePath, projectDistPath, templatePath} from '../config'
+import data from '../config/data'
 
 export default webpackMerge(webpackConfigBase, {
   devtool: 'source-map',
@@ -80,7 +81,8 @@ export default webpackMerge(webpackConfigBase, {
       minify: {
         removeComments: true,
         collapseWhitespace: true
-      }
+      },
+      data
     }),
     // inline webpack manifest
     // https://www.npmjs.com/package/inline-manifest-webpack-plugin
@@ -105,7 +107,7 @@ export default webpackMerge(webpackConfigBase, {
       runtimeCaching: [
         {
           handler: 'networkFirst',
-          urlPattern: /\.(svg, eot, ttf, woff, woff2, jpg, webp)$/
+          urlPattern: /\.(svg|eot|ttf|woff|woff2|jpg|webp|png)$/
         }
       ],
 

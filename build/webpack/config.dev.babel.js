@@ -6,6 +6,7 @@ import BrowserSyncPlugin from 'browser-sync-webpack-plugin'
 
 import webpackConfigBase from './config.base.babel'
 import {CURRENT_IP, WEBPACK_SERVER_PORT, BROWSER_SYNC_PORT, projectSourcePath, templatePath} from '../config'
+import data from '../config/data'
 
 const externalPath = `http://${CURRENT_IP}:${WEBPACK_SERVER_PORT}/`
 
@@ -56,7 +57,8 @@ export default webpackMerge(webpackConfigBase, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       template: templatePath,
-      inject: true
+      inject: true,
+      data
     }),
     // start BrowserSync server, for cross browser development
     // https://github.com/Va1/browser-sync-webpack-plugin
