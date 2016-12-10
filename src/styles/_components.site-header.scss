@@ -24,7 +24,9 @@ $site-header-height:  60px;
     }
 
       .c-site-header__title {
-        font-weight: $global-fw-bold;
+        font-family: "Cardo";
+        font-style: italic;
+        font-weight: $global-fw-regular;
         margin: 0;
         text-transform: uppercase;
       }
