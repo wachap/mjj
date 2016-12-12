@@ -1,4 +1,4 @@
 export default {
   email: 'multiservisyfrio@gmail.com',
-  phoneNumber: '954 112 469'
+  phoneNumber: '+51 954 112 469'
 }
